@@ -15,11 +15,7 @@ This repository is used to build CouchDB Docker images.
 * ``COUCHDB_CREATE_ADMIN_USER`` - set this to ``true`` if a CouchDB administrator account should get created (defaults to ``false``)
 * ``COUCHDB_ADMIN_USERNAME`` - name of the administrator account (no default)
 * ``COUCHDB_ADMIN_PASSWORD`` - administrator account's password (no default)
-* ``CONTAINER_TEST`` - setting this to ``true`` will launch a temporary container which will exit after:
-** Starting the CouchDB service
-** Ensuring the service remains available to receive requests
-** Creating a test database
-** And then deleting it
+* ``CONTAINER_TEST`` - setting this to ``true`` will launch a temporary container which will exit after starting the CouchDB service, ensuring the service remains available to receive requests, creating a test database, and then deleting it
 
 ### Build the image
 
@@ -42,12 +38,12 @@ sudo docker run \
 inclusivedesign/couchdb
 ```
 
-If a container has been created using this image then it can be restarted like so:
+If a container has been previously created using this image then it should be started like so:
 
 ```
 sudo docker run \
 --name="couchdb" \
--d 
+-d \
 -p 5984:5984 \
 -e COUCHDB_ADMIN_USERNAME=testname \
 -e COUCHDB_ADMIN_PASSWORD=testpassword \
